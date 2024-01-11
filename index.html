@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="icon" href="icon.png">
+    <title>Ping Pong KM</title>
+</head>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+body{
+    text-align: center;
+    background-color: ghostwhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    font-family: 'Bebas Neue', sans-serif;
+    background-image: url(background.png);
+    background-size: cover;
+    background-color: #39B54A;
+}
+.controls {
+    display: none;
+}
+button {
+    width: 25vw;
+    padding: 20px;
+    font-size: 25px;
+}
+@media (max-width: 800px) {
+    body {
+        background-image: none;
+    }
+    canvas{
+        transform: scale(0.8);
+    }
+    .controls {
+    display: block;
+}
+}
+@media (max-width: 600px) {
+    canvas{
+        transform: scale(0.6);
+    }
+}
+@media (max-width: 420px) {
+    canvas{
+        transform: scale(0.5);
+    }
+}
+@media (max-width: 350px) {
+    canvas{
+        transform: scale(0.4);
+    }
+}
+
+</style>
+<body>
+    <h1>Pong Game</h1>
+    <canvas></canvas>
+    <div class="controls">
+        <button onclick="
+        Pong.player.move = DIRECTION.UP;
+        if (Pong.running === false) {
+            Pong.running = true;
+            window.requestAnimationFrame(Pong.loop);}"><i class="fa-solid fa-circle-up"></i></button>
+        <button onclick="Pong.player.move = DIRECTION.DOWN;
+         if (Pong.running === false) {
+            Pong.running = true;
+            window.requestAnimationFrame(Pong.loop);}"><i class="fa-solid fa-circle-down"></i></button>
+    </div>
+    <p style="font-size: larger;">Control the left player by using up and down arrow keys</p>
+    <script src="index.js"></script>
+</body>
+</html>
